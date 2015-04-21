@@ -1,4 +1,8 @@
-naam = input("Name? ")
-print("Hello, "+naam+"!")
+<<<<<<< HEAD
+naam = input("What is your name? ")
 
-Kaasbroodje
+=======
+greetings = input("How many greetings? ")
+print(greetings + ' x Hello, ' + naam+'!')
+
+>>>>>>> extension
