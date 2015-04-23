@@ -1,6 +1,10 @@
 text = input("What is your name? ")
 greetings = input("How many greetings? ")
-if type(greetings) == int:
-   print(greetings + ' x Hello, ' + text+'!')
-else:
-    print('hoi')
+probeer = False
+try: 
+    getal = int(greetings)
+    probeer = True
+except:
+    print('Vul een getal in.')
+if(probeer == True):
+    print(str(getal) + ' x Hello, ' + text+'!')
