@@ -1,0 +1,21 @@
+import time
+import math
+import sys
+T1 = time.perf_counter()
+n = int(input("Welk getal wil je gebruiken? "))
+primes = open('workfile', 'w')
+lijst = list(range(2,n))
+i=0
+while(lijst[i]<math.sqrt(n+1)):
+    counter = 2
+    while(lijst[i]*counter<n+1):
+        if(lijst[i]*counter in lijst):
+            lijst.remove(lijst[i]*counter)
+        counter = counter + 1
+    i=i+1
+    primes.write(str(lijst[i]) +"\n")
+print("\n".join(map(str,lijst)))
+print("Amount of primes under "+ str(n)+" is "+ str(len(lijst)))
+primes.close()
+T2 = time.perf_counter()
+print('Time required', T2 - T1, 'sec.')
