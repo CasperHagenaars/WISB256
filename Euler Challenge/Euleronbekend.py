@@ -27,7 +27,7 @@ for a in range(-999,999):
     for b in range(-999,999):
         print(str(a) + ", " + str(b) + ", " + str(n) + ", record: "+ str(record))
         n = 0
-        while(calc(a,b,n) in priem):8
+        while(calc(a,b,n) in priem):
             n += 1
             if(n>record):
                 record = n

@@ -13,9 +13,9 @@ if len(sys.argv) == 4:
 hits = 0
 
 def drop_needle(L):
-    y = random.uniform(0,0.5)
+    y = random.uniform(0,1)
     a = random.uniform(0,math.pi/2)
-    if L*math.cos(a)/2 > y:
+    if L*math.cos(a) > y:
         return True
         
 for i in range(0,aantal):
