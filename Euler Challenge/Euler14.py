@@ -6,12 +6,14 @@ T1 = time.time()
 a = {1:0, 2:1}
 
 def collatz(n):
-    if(n == 1):
-        return 0
-    if(n % 2 == 0):
-        return int(n/2)
-    else:
-        return int(3*n+1)
+    try:
+        return a[n]
+    except:
+        if(n % 2 == 0):
+            return int(n/2)
+        else:
+            return int(3*n+1)
+        a[n] = collatz(n)+1
         
 def aantal(n):
     i = 0
