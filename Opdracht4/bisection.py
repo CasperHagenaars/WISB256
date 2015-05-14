@@ -3,6 +3,10 @@ import math
 
 def findRoot(f,a,b,epsilon):
     m = (a+b)/2
+    if(f(a) == 0):
+        return a
+    if(f(a)*f(b) > 0):
+        return None
     if(math.fabs(a-b) < epsilon):
         return m
     if(f(a)<f(b)):
@@ -15,6 +19,12 @@ def findRoot(f,a,b,epsilon):
         return findRoot(f,l,m,epsilon)
     else:
         return findRoot(f,m,h,epsilon)
-        
+roots = []
+
 def findAllRoots(f,a,b,epsilon):
-    return a
+    while a + 0.5 <= b:
+        root = findRoot(f,a,a+0.5,epsilon)
+        if root != None:
+            roots.append(root)
+        a += 0.5
+    return roots
