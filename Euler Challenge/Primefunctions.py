@@ -20,4 +20,5 @@ def primenumbers(L):
                     
         primes.append(counter)
     return primes 
-priem = set(primenumbers(1000000))
+    
+priem = set(primenumbers(100000000))

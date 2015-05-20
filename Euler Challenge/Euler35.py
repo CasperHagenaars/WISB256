@@ -1,10 +1,6 @@
-import time
 import itertools
-import math
-import sys
+import time
 T1 = time.time()
-
-
 def primenumbers(L):
     notprimes = set()
     primes = []
@@ -17,48 +13,31 @@ def primenumbers(L):
                     
         primes.append(counter)
     return primes 
-
-priem = primenumbers(100)
-spiegel = set()
-priem = set(priem)
-
-
-def swap(n):
-    y = itertools.permutations(str(n))
-    x = map(list,y)
-    return x
     
-def bin(n):
-    m = 1
-    while(n>1):
-        m = n*m
-        n -= 1
-    return m
+priem = set(primenumbers(1000000))
 
-def circular(n):
-    temp = []
-    circ = []
-    for j in swap(n):
-        if(int(j) in priem):
-            temp =+ j
-    if(len(temp) == bin(n)):
-        circ.append(i)
-    return circ
-    
-print(swap(circular(234)))
+def cycle(n):
+    lijst = {n}
+    x = str(n)
+    x = x[1:] + x[0]
+    while(x != str(n)):
+        lijst.add(int(x))
+        x = x[1:] + x[0]
+    return lijst
+
+antwoord = []
 
 for i in priem:
-    temp = []
-    for i in range(0,len(str(i))):
-        i = str(i)
-        i = i + i[0]
-        i = i[1:]
-        if(int(i) in priem):
-            temp.append(i)
-            print(temp)
-        if(len(temp) == len(str(i))):
-            spiegel.add(i)
-        
+    counter = 0
+    n = cycle(i)
+    for j in n:
+        if j in priem:
+            counter += 1
+        if counter == len(n):
+            antwoord.append(i)
 
+print(antwoord)
+print(len(antwoord))
 T2 = time.time()
-time = str(T2 - T1)
+print(str(T2-T1))
+input()

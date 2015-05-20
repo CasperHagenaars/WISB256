@@ -35,8 +35,6 @@ for i in range(1,1000001):
     if(check > record):
         record = check
         recordhouder = i
-    print(str(check) + ", " + str(i)+ ", record: "+ str(record))
-
     
 T2 = time.time()
 time = str(T2 - T1)

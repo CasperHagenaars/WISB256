@@ -19,18 +19,19 @@ priem = set(primenumbers(1000000))
 
 def calc(a,b,n):
     return (n*n + a*n + b)
-awin = 0
-bwin = 0
 record = 0
-n = 0
-for a in range(-999,999):
-    for b in range(-999,999):
-        print(str(a) + ", " + str(b) + ", " + str(n) + ", record: "+ str(record))
+arec  = 0
+brec = 0
+print("huh")
+for i in range(-1000,1000):
+    for j in range(-1000,1000):
         n = 0
-        while(calc(a,b,n) in priem):8
+        while(calc(i,j,n) in priem):
             n += 1
-            if(n>record):
-                record = n
-                awin = a
-                bwin = b
-print(str(record)+ ", " + str(awin) + ", " + str(bwin))
+        if n > record:
+            record = n 
+            arec = i
+            brec = j
+print(record)
+print(arec)
+print(brec)
