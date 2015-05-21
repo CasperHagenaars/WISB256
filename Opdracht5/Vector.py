@@ -43,3 +43,20 @@ class Vector:
         for i in range(aantal):
             dist += self.vectors[i]*other.vectors[i]
         return dist
+    
+    def proj(self, other):
+        sc = self.inner(other)/self.inner(self)
+        projection = self.scalar(sc)
+        return projection 
+        
+def GrammSchmidt(lijst):
+    for i in lijst:
+        if(lijst.index(i) == 0):
+            continue
+        xi = lijst[i]
+        xi = Vector
+        for j in range(lijst.index(i)):
+            yj = lijst[j]
+            som = proj.yj(xi)
+            lijst[i] = lincomb.xi(som,1,-1)
+    return lijst

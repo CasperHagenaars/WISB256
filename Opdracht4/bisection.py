@@ -22,9 +22,9 @@ def findRoot(f,a,b,epsilon):
 roots = []
 
 def findAllRoots(f,a,b,epsilon):
-    while a + 0.5 <= b:
-        root = findRoot(f,a,a+0.5,epsilon)
+    while a + 0.1 <= b:
+        root = findRoot(f,a,a+0.1,epsilon)
         if root != None:
             roots.append(root)
-        a += 0.5
+        a += 0.1
     return roots

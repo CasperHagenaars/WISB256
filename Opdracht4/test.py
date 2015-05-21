@@ -3,6 +3,8 @@ import math
 import time
 T1 = time.time()
 root = bisection.findAllRoots(lambda x:math.sin(x),0,9,.1)
+for i in range(len(root)):
+    root[i] = round(root[i],5)
 print(root)
 T2 = time.time()
 
