@@ -1,7 +1,7 @@
 from Vector import Vector
+from Vector import GrammSchmidt
 
-u = Vector(3,[1,2,3])
-v = Vector(3,3.5)
-w = u.lincomb(v,10,1)
-w = w.scalar(2)
-print(u.GrammSchmidt(v))
+u = Vector(2,[3,1])
+v = Vector(2,[2,2])
+w = GrammSchmidt([u,v])
+print(u)
