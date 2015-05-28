@@ -1,6 +1,7 @@
 import time
 import math
 import sys
+sys.maxsize = 99999999
 T1 = time.time()
 n = int(sys.argv[1])
 bestand = open(sys.argv[2], 'w')
