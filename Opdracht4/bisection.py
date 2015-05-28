@@ -25,6 +25,6 @@ def findAllRoots(f,a,b,epsilon):
     while a + 0.00001 <= b:
         root = findRoot(f,a,a+0.00001,epsilon)
         if root != None:
-            roots.append(round(root,5))
+            roots.append(root)
         a += 0.00001
     return roots
