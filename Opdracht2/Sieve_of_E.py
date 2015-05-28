@@ -20,4 +20,4 @@ T2 = time.time()
 time = str(T2 - T1)
 time = time[:19]
 print("Found "+ str(len(primes))+" Prime numbers smaller than "+ str(n)+ " in " + time + " sec.")
-print("-------------------------------------------- ")
+print("--------------------------------------------")
