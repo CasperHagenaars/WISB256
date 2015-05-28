@@ -46,6 +46,7 @@ class Vector:
         sc = self.inner(other)/self.inner(self)
         projection = self.scalar(sc)
         return projection 
+
         
 def GrammSchmidt(vectoren):
     orth = []
@@ -54,4 +55,8 @@ def GrammSchmidt(vectoren):
         for y in orth:
             som = som.lincomb(y.proj(x),1,1)
         orth.append(x.lincomb(som,1,-1))
+    for i in orth:
+        inner = i.inner(i)
+        for j in range(i.lengte):
+            i.vectors[j] /= math.sqrt(inner)
     return orth

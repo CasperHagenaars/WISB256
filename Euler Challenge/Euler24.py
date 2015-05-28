@@ -1,4 +1,7 @@
 import itertools
 import math
-n = "0123456789"
-x = list(itertools.permutations(list(n)))
+
+a = list(itertools.permutations(list(str(1234567890))))
+a = sorted(a)
+print(a[999999])
+input()

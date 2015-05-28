@@ -4,7 +4,7 @@ import re
 import math
 T1 = time.time()
 
-f = open('euler18', 'r')
+f = open('pass.datE', 'r')
 a = []
 for line in f:
     h = line
