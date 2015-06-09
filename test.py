@@ -1,1 +1,2 @@
-print(type([0]))
+print(1/7)
+print(float(1)/7)*7

@@ -18,7 +18,7 @@ def fractionmaker(n):
     temp = fractions.Fraction(n).limit_denominator(10**500)
     return str(temp).split('/')
 
-print(fractionmaker(it(999)))
+print(fractionmaker(it(5)))
 print(fractionmaker(it(1000)))
 
 counter = 0

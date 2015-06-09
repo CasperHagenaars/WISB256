@@ -1,22 +1,7 @@
-import time
 import math
-from math import sqrt
-from itertools import count, islice
-
-def isPrime(n):
-    if n < 2: return False
-    return all(n%i for i in islice(count(2), int(sqrt(n)-1)))
-
-def base2(x):
-    return int(bin(x)[2:])
-    
-def bin(n):
-    m = 1
-    while(n>1):
-        m = n*m
-        n -= 1
-    return m
-    
+import time
+from multiprocessing import Pool
+T1 = time.time()
 def primenumbers(L):
     notprimes = set()
     primes = []
@@ -30,11 +15,10 @@ def primenumbers(L):
         primes.append(counter)
     return primes 
     
-
-
 priem = primenumbers(1000000)
+
 def totient(a):
-    getal = a
+    getal = 1
     priemdelers = set()
     if a in priem:
         return int(a-1)
@@ -43,10 +27,21 @@ def totient(a):
             if(a % i == 0):
                 while(a/i % 1 == 0):
                     a /= i
+                    getal *= i
                 priemdelers.add(i)
                 continue
         else:
             break
     for x in priemdelers:
-        getal *= (1-1/x)
+        getal *= (x-1)
     return int(getal)
+    
+total = 0
+print(totient(8))
+for i in range(2,2):
+    total += totient(i)
+print(total)
+
+T2 = time.time()
+print(T2-T1)
+input()

@@ -1,22 +1,5 @@
-import time
 import math
-from math import sqrt
-from itertools import count, islice
-
-def isPrime(n):
-    if n < 2: return False
-    return all(n%i for i in islice(count(2), int(sqrt(n)-1)))
-
-def base2(x):
-    return int(bin(x)[2:])
-    
-def bin(n):
-    m = 1
-    while(n>1):
-        m = n*m
-        n -= 1
-    return m
-    
+import time
 def primenumbers(L):
     notprimes = set()
     primes = []
@@ -30,9 +13,9 @@ def primenumbers(L):
         primes.append(counter)
     return primes 
     
-
-
 priem = primenumbers(1000000)
+
+T1 = time.time()
 def totient(a):
     getal = a
     priemdelers = set()
@@ -50,3 +33,12 @@ def totient(a):
     for x in priemdelers:
         getal *= (1-1/x)
     return int(getal)
+    
+total = 0
+for i in range(2,10001):
+    total += totient(i)
+print(total)
+
+T2 = time.time()
+print(T2-T1)
+input()

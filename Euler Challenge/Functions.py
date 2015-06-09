@@ -29,24 +29,29 @@ def primenumbers(L):
                     
         primes.append(counter)
     return primes 
-    
-
 
 priem = primenumbers(1000000)
-def totient(a):
-    getal = a
-    priemdelers = set()
-    if a in priem:
-        return int(a-1)
+priem2 = set(priem)
+def priemdelers(a):
+    priems = set()
     for i in priem:
         if a != 1:
             if(a % i == 0):
                 while(a/i % 1 == 0):
                     a /= i
-                priemdelers.add(i)
+                priems.add(i)
                 continue
         else:
             break
-    for x in priemdelers:
+    return priems
+
+def totient(a):
+    if a == 0 or a == 1:
+        return 1
+    getal = a
+    if a in priem2:
+        return int(a-1)
+    primes = priemdelers(a)
+    for x in primes:
         getal *= (1-1/x)
     return int(getal)

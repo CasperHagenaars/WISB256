@@ -29,7 +29,7 @@ def doe(a):
             if(j==0):
                 a[i][0] += a[i-1][0]
                 continue
-            
+
             if a[i][j-1] < a[i-1][j]:
                 a[i][j] += a[i][j-1]
             else:
