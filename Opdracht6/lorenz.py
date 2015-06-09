@@ -18,6 +18,3 @@ class Lorenz:
             tijd = np.arange(0, T+dt, dt)
             func = odeint(self.lorenz, [self.startpositie[0],self.startpositie[1],self.startpositie[2]], tijd)
             return func
-        
-        def jacobian(self,positie):
-            return nd.Jacobian(positie)
