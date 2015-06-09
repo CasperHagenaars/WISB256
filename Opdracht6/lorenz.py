@@ -3,7 +3,7 @@ import numpy as np
 
 class Lorenz:
         def __init__(self, positie, sigma=10, rho=28, beta=8/3):
-            self.positie = positie
+            self.startpositie = positie
             self.sigma = sigma
             self.rho = rho
             self.beta = beta
@@ -16,5 +16,8 @@ class Lorenz:
                 
         def solve(self,T,dt):
             tijd = np.arange(0, T+dt, dt)
-            func = odeint(self.lorenz, [self.positie[0],self.positie[1],self.positie[2]], tijd)
+            func = odeint(self.lorenz, [self.startpositie[0],self.startpositie[1],self.startpositie[2]], tijd)
             return func
+        
+        def jacobian(self,positie):
+            return nd.Jacobian(positie)
