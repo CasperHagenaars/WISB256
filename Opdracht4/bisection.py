@@ -19,9 +19,8 @@ def findRoot(f,a,b,epsilon):
         return findRoot(f,l,m,epsilon)
     else:
         return findRoot(f,m,h,epsilon)
-roots = []
-
 def findAllRoots(f,a,b,epsilon):
+    roots = []
     while a + 10*epsilon <= b:
         root = findRoot(f,a,a+10*epsilon,epsilon)
         if root != None:
