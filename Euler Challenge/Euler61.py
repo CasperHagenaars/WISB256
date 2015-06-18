@@ -1,16 +1,14 @@
 import math
-import itertools
 import time
 T1 = time.time()
 def polygonal(f):
-    verzameling = []
+    verzameling = set()
     for n in range(1000):
         num = f(n)
+        if num > 999:
+            verzameling.add(int(num))
         if num > 9999:
             return verzameling
-        if num > 999:
-            verzameling.append(int(num))
-
             
 triangle = polygonal(lambda n: n*(n+1)/2)
 square = polygonal(lambda n: n*n)
@@ -19,38 +17,35 @@ hexagonal = polygonal(lambda n: n*(2*n-1))
 heptagonal = polygonal(lambda n: n*(5*n-3)/2)
 octagonal = polygonal(lambda n: n*(3*n-2))
 
-def check(eerste,tweede):
+def check(n,m1):
     verz = set()
-    for n in eerste:
-        for m in tweede:
-            n1 = str(n)[2:]
-            n2 = str(m)[:2]
-            if n1 == n2:
-                if str(m)[2] != '0':
-                    verz.add(m)
+    for m in m1:
+        if str(n)[:2] == str(m)[2:] or str(n)[2:] == str(m)[:2]:
+            verz.add(m)
     return verz
-    
-def reken(lijst):
-    temp = square
+def reken(a,b,c,d,e):
     result = set()
-    verz = set()
-    for i in lijst:
-        result = set()
-        result = result.union(check(temp,i))
-        temp = result
+    for i in a:
+        result = result.union(check(i,b))
+    temp = result
+    result = set()
+    for j in temp:
+        result = result.union(check(j,c))
+    temp = result
+    result = set()
+    for k in temp:
+        result = result.union(check(j,d))
+    temp = result
+    result = set()
+    for m in temp:
+        result = result.union(check(j,e))  
+    temp = result
+    result = set()
+    for l in temp:
+        result = result.union(check(j,a))
     return result
-    
-antwoord = set()
-lijst = [triangle,pentagon,hexagonal,octagonal,pentagon]
+print(reken(square,triangle,pentagon,hexagonal,pentagon))
 
-for i in list(itertools.permutations(lijst)):
-    temp = i
-    if(reken(temp) != set()):
-        test = check(reken(temp),square)
-        for elem in test:
-            antwoord.add(elem)
-    
-print(antwoord)
 T2 = time.time()
 print(T2-T1)
 input()

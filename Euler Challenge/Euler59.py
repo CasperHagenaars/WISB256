@@ -32,4 +32,3 @@ for symbol in tekst:
     waarden += ord(symbol)
 print(waarden)
 print(tekst)
-input()

@@ -1,5 +1,6 @@
 from scipy.integrate import odeint
 import numpy as np
+from scipy import linalg
 
 class Lorenz:
         def __init__(self, positie, sigma=10, rho=28, beta=8/3):
@@ -18,3 +19,12 @@ class Lorenz:
             tijd = np.arange(0, T+dt, dt)
             func = odeint(self.lorenz, [self.startpositie[0],self.startpositie[1],self.startpositie[2]], tijd)
             return func
+            
+        def df(self,u):
+            tijd = np.arange(0, u+0.001, 0.001)
+            func = odeint(self.lorenz, [self.startpositie[0],self.startpositie[1],self.startpositie[2]], tijd)
+            return func[-1]
+            
+        def test(self,u):
+            return linalg.eig(u)
+            

@@ -1,2 +1,4 @@
-print(1/7)
-print(float(1)/7)*7
+for i in range(100):
+    print(i)
+    i += 1
+    print(i)

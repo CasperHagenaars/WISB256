@@ -13,3 +13,5 @@ def XOR(a,b):
     for i in range(len(a)):
         result += str((int(a[i])+int(b[i])) % 2)
     return base10(result)
+
+input()
